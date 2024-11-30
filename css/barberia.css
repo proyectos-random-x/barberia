@@ -1,0 +1,542 @@
+/**
+ * Refactorizando estilos
+*/
+:root {
+	--base-fondo: #EEE;
+	--base-texto: #333;
+	--enlace: #555;
+	--enlace-hover: #c78c19;
+	--enlace-hover-rgb: 199,140,25;
+	--border-radius: .3rem;
+	--box-shadow: 10px 10px 10px rgba(100,100,100,.4);
+	--box-shadow-container: 0 0 10px rgba(100,100,100,.4);
+}
+/**
+ * Para más información
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+ * https://web.dev/i18n/es/prefers-reduced-motion/
+*/
+@media (prefers-reduced-motion: no-preference) {
+  	:root {
+    	scroll-behavior: smooth;
+  	}
+}
+
+*, *::before, *::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	background: transparent;
+	appearance: transparent;
+	border: 0;
+}
+
+html {
+	width: 100%;
+	height: 100vh;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1rem; /* 1rem = 16px */
+	font-weight: 400;
+	line-height: 1.5rem;
+}
+ol, ul {
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--enlace);
+}
+
+/**
+ * Creamos nuevo contenedor general
+*/
+.contenedor, .container {
+	margin: 0 auto;
+	width: 80%;
+	max-width: 75rem; /* 75rem = 1200px */
+}
+.bg-white {
+	background-color: #fff;
+}
+.border-radius {
+	border-radius: var(--border-radius);
+}
+.box-shadow {
+	box-shadow: var(--box-shadow-container);
+}
+.padding-1-5rem {
+	padding: 1.5rem;
+}
+/*******/
+header {
+	width: 100%;
+	background-image: url('../images/banner.jpg');
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	margin-bottom: -50px;
+}
+/**
+ * Información sobre backdrop-filter
+ * https://developer.mozilla.org/es/docs/Web/CSS/backdrop-filter
+*/
+header .menu-navegacion {
+	background: linear-gradient(to bottom, rgba(255,255,255, .8), rgba(255,255,255, .6), rgba(255,255,255, .4), rgba(255,255,255, .2));
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9;
+}
+header .menu-navegacion .navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 80px;
+	padding: 0.4rem 0;
+}
+header .menu-navegacion .navbar .logo {
+	height: 28px;
+	overflow: hidden;
+}
+header .menu-navegacion .navbar .logo img {
+	margin-top: -110px;
+}
+header .menu-navegacion .navbar ul li {
+	display: inline-block;
+}
+header .menu-navegacion .navbar ul li a {
+	display: block;
+	padding: 0.3rem 1.5rem;
+	font-weight: 600;
+	background: rgba(255,255,255, .8);
+	border-radius: 10em
+}
+header .menu-navegacion .navbar ul li a.active {
+	background: rgba(var(--enlace-hover-rgb), .8);
+	color: #FFF;
+}
+header .menu-navegacion .navbar ul li a:hover {
+	background: rgba(var(--enlace-hover-rgb), .4);
+	color: #FFF;
+}
+/**
+ * Informacion sobre place-items
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/place-items
+*/
+header .encabezado {
+	text-align: center;
+	color: #FFF;
+	font-weight: 900;
+	padding: 150px 0 180px 0;
+	font-size: 2em;
+}
+/**
+ * Aplicar fondo transparente
+ * https://twitter.com/latteandcode/status/1356584007199318016/photo/1
+
+header .encabezado img {
+	filter: brightness(1.1);
+	mix-blend-mode: multiply;
+}
+*/
+header .encabezado h1 {
+	text-shadow: 2px 1px 4px rgba(0,0,0,.6), -2px 1px 4px rgba(0,0,0,.8);
+}
+
+main {
+	position: relative;
+	display: block;
+}
+.subencabezado {
+	text-align: center;
+	padding: 1rem 0;
+	font-weight: 400;
+	margin-bottom: 1rem;
+	font-size: 2em;
+}
+section {
+	margin-bottom: 1rem;
+}
+section .historia {
+	line-height: 1.8rem;
+	padding: 3rem;
+	background-color: rgba(200,200,200,.1);
+}
+section .historia img {
+	float: left;
+	margin-right: 1rem;
+	width: 100px;
+	height: 100%;
+}
+section .historia p {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: 300;
+}
+section .historia .cita {
+	font-size: 20px;
+	padding: 4px 0;
+	margin-bottom: 10px;
+}
+section.mapa {
+	text-align: center;
+}
+section.mapa p {
+	margin-top: -10px;
+}
+section.mapa .iframe {
+	background-color: #EEE4;
+	width: 80%;
+	height: 340px;
+	margin: 0 auto;
+	border-radius: .3rem;
+	overflow: hidden;
+}
+section .contenido-diferenciales {
+	width: 720px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 10px;
+}
+section .contenido-diferenciales img {
+	width: 100%;
+}
+section .contenido-diferenciales .lista {
+	width: 320px;
+}
+section .contenido-diferenciales .lista .items {
+	padding: 8px 6px;
+	line-height: 1.5;
+	font-style: italic;
+}
+section .contenido-diferenciales .lista .items:first-child {
+	font-weight: bold;
+	font-style: normal;
+	text-align: center;
+}
+section .contenido-diferenciales .lista .items::before {
+	content: '★';
+	margin-left: -13px;
+	margin-right: 5px;
+}
+section .contenido-diferenciales .lista .items:first-child::before {
+	content: '';
+	margin-left: 0;
+	margin-right: 0;
+}
+.video {
+	width: 560px;
+	height: 315px;
+	margin: 4rem auto;
+	background-color: #EEE;
+	overflow: hidden;
+	position: relative;
+}
+
+footer {
+	background-image: url('../images/bg.jpg');
+	text-align: center;
+	padding: 100px 0 30px 0;
+	margin-top: -80px;
+}
+.copyright {
+	color: #fff;
+	font-size: 13px;
+	margin: 20px;
+}
+/* Productos.html */
+.productos {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+.productos .item {
+	text-align: center;
+	padding: 30px 20px;
+	box-sizing: border-box;
+	border: 2px solid #000;
+	border-radius: 10px;
+}
+.productos .item:hover {
+	border-color: var(--enlace-hover);
+}
+.productos .item h2 {
+	font-size: 30px;
+	font-weight: bold;
+	transition: font-size .4s ease-in-out;
+}
+.productos .item:hover h2 {
+	font-size: 33px;
+	transition: font-size .4s ease-in-out;
+}
+.productos .item .descripcion {
+	font-size: 18px;
+}
+.productos .item .precio {
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+/* Contacto.html */
+form {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template: 1rem;
+}
+form fieldset {
+	padding: 1rem;
+}
+.grupo {
+	padding: 6px;
+	margin-bottom: 10px;
+}
+.grupo label {
+	display: block;
+	font-weight: 600;
+}
+/**
+ * https://developer.mozilla.org/es/docs/Web/CSS/:not
+*/
+.grupo input:not([type=submit], [type=radio], [type=checkbox]),
+textarea, select {
+	display: block;
+	padding: 8px;
+	width: 100%;
+	box-sizing: border-box;
+	outline: 1px solid rgba(100,100,100,.3);
+	border-radius: .3rem;
+}
+.grupo-radio, .grupo-checkbox {
+	margin-bottom: 1rem;
+}
+.grupo-checkbox {
+	margin-top: 1rem;
+}
+.grupo-radio label {
+	display: block;
+	padding: 5px;
+}
+.grupo-radio input,
+.grupo-checkbox input {
+	opacity: 0;
+}
+.grupo-radio span::before,
+.grupo-checkbox span::before {
+	content: '';
+	float: left;
+	margin-top: 5px;
+	margin-right: -12px;
+	width: 14px;
+	height: 14px;
+	background-color: #CCC;
+	border-radius: 10em
+}
+.grupo-checkbox span::before {
+	border-radius: .2rem
+}
+.grupo-radio input:checked ~ span::before,
+.grupo-checkbox input:checked ~ span::before {
+	background-color: #39CE9F;
+	box-shadow: 0 0 4px #39CE9F55;
+}
+.enviar {
+	background-color: var(--enlace-hover);
+	width: max-content;
+	margin: 0 auto 10px auto;
+	padding: 8px 1rem;
+	border-radius: .3rem;
+	font-size: 1rem;
+	color: #FFF;
+}
+table {
+	width: 60%;
+}
+thead {
+	background-color: #333;
+	color: #FFF;
+}
+tr:nth-child(2n+1) {
+	background-color: #3331;
+}
+tr td, thead th {
+	padding: 6px;
+}
+tr td:last-child {
+	text-align: center;
+	font-weight: 600;
+}
+@media (width <= 576px) {
+	.contenedor, .container {
+		width: 540px;
+	}
+	section .historia img {
+		display: none;
+	}
+	section.mapa .iframe,
+	section .contenido-diferenciales,
+	.video {
+		width: 100%;
+	}
+	section .contenido-diferenciales {
+		display: block;
+	}
+	section .contenido-diferenciales img, table	 {
+		width: 100%;
+	}
+	.video {
+		height: 300px;
+	}
+	.productos,form {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+@media (width <= 768px) {
+	.contenedor, .container {
+		width: 720px;
+	}
+	section .historia img {
+		display: block;
+	}
+	section .historia img {
+		width: 140px;
+	}
+	section .contenido-diferenciales {
+		display: grid;
+	}
+	section .contenido-diferenciales,
+	section .contenido-diferenciales img {
+		width: 100%;
+	}
+	section .contenido-diferenciales .lista .items {
+		line-height: 1.2;
+	}
+	.productos {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+@media (width <= 992px) {
+	.contenedor, .container,
+	section .contenido-diferenciales {
+		width: 90%;
+	}
+	section .contenido-diferenciales img {
+		width: 90%;
+	}
+	.video {
+		width: 560px;
+		height: 315px;
+	}
+	.productos, form {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	table {
+		width: 60%;
+	}
+}
+@media (width <= 1200px) {
+	.contenedor, .container,
+	section .contenido-diferenciales {
+		width: 80%;
+	}
+	section .contenido-diferenciales img {
+		width: 100%;
+	}
+	section .contenido-diferenciales .lista .items {
+		line-height: 1.5;
+	}
+	table {
+		width: 60%;
+	}
+	.productos {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+lite-youtube {
+   background-color: #000;
+   position: relative;
+   display: block;
+   contain: content;
+   background-position: center center;
+   background-size: cover;
+   cursor: pointer;
+   max-width: 720px;
+}
+lite-youtube::before {
+   content: attr(data-title);
+   display: block;
+   position: absolute;
+   top: 0;
+   background-image: linear-gradient(180deg, rgb(0 0 0 / 67%) 0%, rgb(0 0 0 / 54%) 14%, rgb(0 0 0 / 15%) 54%, rgb(0 0 0 / 5%) 72%, rgb(0 0 0 / 0%) 94%);
+   height: 99px;
+   width: 100%;
+   font-family: "YouTube Noto",Roboto,Arial,Helvetica,sans-serif;
+   color: hsl(0deg 0% 93.33%);
+   text-shadow: 0 0 2px rgba(0,0,0,.5);
+   font-size: 18px;
+   padding: 25px 20px;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   box-sizing: border-box;
+}
+lite-youtube:hover::before {
+   color: white;
+}
+lite-youtube::after {
+   content: "";
+   display: block;
+   padding-bottom: calc(100% / (16 / 9));
+}
+lite-youtube > iframe {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: 0;
+}
+lite-youtube > .lyt-playbtn {
+   display: block;
+   width: 100%;
+   height: 100%;
+   background: no-repeat center/68px 48px;
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');
+   position: absolute;
+   cursor: pointer;
+   z-index: 1;
+   filter: grayscale(100%);
+   transition: filter .1s cubic-bezier(0, 0, 0.2, 1);
+   border: 0;
+}
+lite-youtube:hover > .lyt-playbtn,
+lite-youtube .lyt-playbtn:focus {
+   filter: none;
+}
+lite-youtube.lyt-activated {
+   cursor: unset;
+}
+lite-youtube.lyt-activated::before,
+lite-youtube.lyt-activated > .lyt-playbtn {
+   opacity: 0;
+   pointer-events: none;
+}
+.lyt-visually-hidden {
+   clip: rect(0 0 0 0);
+   clip-path: inset(50%);
+   height: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+   width: 1px;
+}

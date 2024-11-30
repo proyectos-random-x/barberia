@@ -1,0 +1,71 @@
+<form>
+	<fieldset>
+		<div class="grupo">
+			<label for="nombre">Nombre y Apellido</label>
+			<input type="text" id="nombre" placeholder="Ingresa tu nombre" class="input-padron" required>
+		</div>
+		<div class="grupo">
+			<label for="email">Correo electrónico</label>
+			<input type="email" id="email" placeholder="johndoe@barberia.com" class="input-padron" required>
+		</div>
+		<div class="grupo">
+			<label for="telefono">Teléfono</label>
+			<input type="tel" id="telefono" placeholder="(+XX) X XXX XXXX-XXX" class="input-padron">
+		</div>
+		<div class="grupo">
+			<label for="mensaje">Mensaje</label>
+			<textarea id="mensaje" cols="68" rows="10" placeholder="Ingresa un mensaje adicional si quieres realizar más preguntas o resolver algunas dudas" class="input-padron"></textarea>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<p>Cómo le gustaría que lo contactemos?</p>
+		<div class="grupo-radio">
+			<label for="radioEmail">
+				<input type="radio" value="email" name="contacto" id="radioEmail"> 
+				<span>Email</span>
+			</label>				
+
+			<label for="radioTelefono">
+				<input type="radio" value="telefono" name="contacto" id="radioTelefono"> 
+				<span>Telefono</span>
+			</label>				
+
+			<label for="radioWhatsapp">
+				<input type="radio" value="whatsapp" name="contacto" id="radioWhatsapp" checked> 
+				<span>Whatsapp</span>
+			</label>
+		</div>			
+
+		<p>Seleccione un horario para ser atendido!</p>
+		<select id="horario" required>
+			<option value="manana">Mañana</option>
+			<option value="tarde">Tarde</option>
+			<option value="noche">Noche</option>
+		</select>
+
+		<div class="grupo-checkbox">
+			<label for="novedades" class="checkbox">
+				<input type="checkbox" id="novedades" checked> 
+				<span>Le gustaría recibir novedades?</span>
+			</label>
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Día</th>
+					<th>Horario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>Lunes</td><td>08h ~ 20h</td></tr>
+				<tr><td>Miércoles</td><td>08h ~ 20h</td></tr>
+				<tr><td>Viernes</td><td>08h ~ 20h</td></tr>
+			</tbody>
+		</table>
+
+	</fieldset>
+	
+	<input type="submit" value="Enviar formulario" class="enviar">
+</form>
