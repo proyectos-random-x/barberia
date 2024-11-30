@@ -1,31 +1,32 @@
 /**
  * Para usar fetch
- * https://eldevsin.site/fetch-api-la-guia-completa-y-olvidarse-de-axios/
+ * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#creating_a_request_object
  * Funciones flecha
  * https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions
  * https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/async_function
 */
-async function getPage(page) {
-	let CreateUrl = location.origin + location.pathname;
-	let get = await fetch(CreateUrl.replace('index.html', page))
-	let tipo = await get.text();
-	document.querySelector("main").innerHTML = tipo
+function getPage(page) {
+	fetch(`${location.href}${page}.html`)
+	.then(html => html.text())
+	.then(pagina => document.querySelector("main").innerHTML = pagina);
 }
-
-window.onload = async () => await getPage('home.html');
 
 /**
  * Navegacion
 */
 const enlaces = [].slice.call(document.querySelectorAll(".navbar ul li a"));
-enlaces.map( enlace => {
-	enlace.addEventListener('click', async evento => {
-		enlaces.map( enlace => enlace.classList.remove('active'))
-		evento.preventDefault()
-		
-		let nombre = (enlace.dataset.pagina === 'index.html') ? 'home.html' : enlace.dataset.pagina;
+enlaces.forEach( enlace => {
+	enlace.addEventListener('click', evento => {
+		let dataSet = enlace.dataset.pagina;
+		let nombre = (dataSet === 'home') ? 'home' : dataSet;
+		evento.preventDefault();
+		enlaces.forEach( enlace => enlace.classList.remove('active'));
+		enlace.classList.add('active');
+		getPage(nombre);
+	});
+});
 
-		enlace.classList.add('active')
-		await getPage(nombre);
-	})
-})
+/**
+ * Cargamos la primera página
+*/
+window.onload = () => getPage('home');
