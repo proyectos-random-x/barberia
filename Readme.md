@@ -15,6 +15,6 @@ Google Map: Este genera algunos problemas, por lo cual investigraré más para r
 Video de Youtube: Existe un plugin de javascript que hace que se cargue el iframe solo cuando el usuario de play para reproducir el video.
 
 ### Otros repositorios
- * 🗄 [Encriptador v2](https://github.com/joelmiguelvalente/encriptador/tree/main)
- * 🗄 [Encriptador v3](https://github.com/joelmiguelvalente/encriptador)
- * 🗄 [Ahorcado v2](https://github.com/joelmiguelvalente/ahorcadov2)
+ * 🗄 [Encriptadores](https://github.com/proyectos-random-x/encriptadores)
+ * 🗄 [Ahorcado](https://github.com/proyectos-random-x/ahorcado)
+ * 🗄 [Ferrovías (diseño)](https://github.com/proyectos-random-x/Ferrovias)
